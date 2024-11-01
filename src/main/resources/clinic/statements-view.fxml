@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="clinic.controller.StatementsView">
+
+    <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="25.0" prefWidth="651.0">
+        <Menu text="Home">
+            <MenuItem fx:id="homeTab" onAction="#goToHomePage" text="Back to welcome page"/>
+        </Menu>
+
+        <Menu fx:id="menuAppointment" text="Appointment">
+            <MenuItem fx:id="scheduleTab" onAction="#goToSchedulePage" text="Schedule/Cancel"/>
+            <MenuItem fx:id="rescheduleTab" onAction="#goToReschedulePage" text="Reschedule"/>
+        </Menu>
+
+        <Menu fx:id="appointmentList" text="List of Appointments">
+            <MenuItem fx:id="appointmentByLocationTab" onAction="#goToAppointmentByLocationPage" text="by Location (county/date/time)"/>
+            <MenuItem fx:id="appointmentsByDateTimeProviderTab" onAction="#goToAppointmentByDateTimeProviderPage" text="by date/time/provider"/>
+            <MenuItem fx:id="officeVisitAppointments" onAction="#goToOfficeAppointmentPage" text="office visits only"/>
+            <MenuItem fx:id="imagingAppointmentsTab" onAction="#goToImagingAppointmentPage" text="imaging service only"/>
+        </Menu>
+
+        <Menu fx:id="statements" text="Statements">
+            <MenuItem fx:id="statementsTab" onAction="#goToStatementsPage" text="Statements"/>
+        </Menu>
+    </MenuBar>
+
+    <TabPane layoutY="27.0" prefHeight="420.0" prefWidth="551.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Patients">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                        <children>
+                            <Text fx:id="titleText" layoutX="148.0" layoutY="51.0" strokeType="OUTSIDE"
+                                  strokeWidth="0.0" text="Patient Statements" textAlignment="CENTER"
+                                  wrappingWidth="254.823486328125">
+                                <font>
+                                    <Font name="Times New Roman" size="30.0"/>
+                                </font>
+                            </Text>
+                            <TableView layoutX="85.0" layoutY="73.0" prefHeight="298.0" prefWidth="383.0">
+                                <columns>
+                                    <TableColumn fx:id="patientFirstName" prefWidth="131.199951171875"
+                                                 text="First Name"/>
+                                    <TableColumn fx:id="patientLastName" prefWidth="124.800048828125" text="Last Name"/>
+                                    <TableColumn fx:id="totalCost" prefWidth="124.800048828125" text="Total Cost"/>
+                                </columns>
+                            </TableView>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab text="Providers">
+                <content>
+                    <AnchorPane>
+                        <children>
+                            <Text fx:id="titleText1" layoutX="148.0" layoutY="49.0" strokeType="OUTSIDE"
+                                  strokeWidth="0.0" text="Provider Statements" textAlignment="CENTER"
+                                  wrappingWidth="254.823486328125">
+                                <font>
+                                    <Font name="Times New Roman" size="30.0"/>
+                                </font>
+                            </Text>
+                            <TableView layoutX="83.0" layoutY="77.0" prefHeight="290.0" prefWidth="383.0">
+                                <columns>
+                                    <TableColumn fx:id="providerFirstName" prefWidth="131.199951171875"
+                                                 text="First Name"/>
+                                    <TableColumn fx:id="providerLastName" prefWidth="124.800048828125"
+                                                 text="Last Name"/>
+                                    <TableColumn fx:id="credits" prefWidth="124.800048828125" text="Credits"/>
+                                </columns>
+                            </TableView>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
+</AnchorPane>

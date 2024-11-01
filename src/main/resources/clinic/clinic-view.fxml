@@ -9,39 +9,34 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0"
             prefWidth="575.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="clinic.ClinicController">
+            fx:controller="clinic.controller.ClinicController">
    <Text layoutX="144.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to RU clinic!"
          wrappingWidth="325.2994384765625">
       <font>
          <Font name="Bell MT" size="30.0"/>
       </font>
    </Text>
-   <MenuBar layoutX="-1.0" layoutY="1.0" prefHeight="26.0" prefWidth="575.0">
-      <Menu mnemonicParsing="false" text="Appointment">
-         <MenuItem fx:id="switchSceneToScheduleCancelAppointmentView" mnemonicParsing="false"
-                   onAction="#switchSceneToScheduleCancelAppointmentView" text="Schedule / Cancel"/>
-         <MenuItem fx:id="switchSceneToRescheduleAppointmentView" mnemonicParsing="false"
-                   onAction="#switchSceneToRescheduleAppointmentView" text="Reschedule"/>
+
+   <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="25.0" prefWidth="651.0">
+      <Menu text="Home">
+         <MenuItem fx:id="homeTab" onAction="#goToHomePage" text="Back to welcome page"/>
       </Menu>
-      <Menu mnemonicParsing="false" text="List of Appointments">
-         <MenuItem fx:id="listByLocation" mnemonicParsing="false" onAction="#sortByLocation"
-                   text="by Location (county/date/time)"/>
-         <MenuItem fx:id="listByDateTimeProvider" mnemonicParsing="false" onAction="#sortByDateTimeProvider"
-                   text="by date/time/provider"/>
-         <MenuItem fx:id="officeVisitsList" mnemonicParsing="false" onAction="#sortByOfficeVisit"
-                   text="office visits only"/>
-         <MenuItem fx:id="imagingServiceList" mnemonicParsing="false" onAction="#sortByImaging"
-                   text="imaging service only"/>
+
+      <Menu fx:id="menuAppointment" text="Appointment">
+         <MenuItem fx:id="scheduleTab" onAction="#goToSchedulePage" text="Schedule/Cancel"/>
+         <MenuItem fx:id="rescheduleTab" onAction="#goToReschedulePage" text="Reschedule"/>
       </Menu>
-      <Menu mnemonicParsing="false" text="Statements">
-         <MenuItem fx:id="patientBillStatement" mnemonicParsing="false" onAction="#patientStatement"
-                   text="Patient"/>
-         <MenuItem fx:id="providerCreditStatement" mnemonicParsing="false" onAction="#providerStatement"
-                   text="Provider"/>
+
+      <Menu fx:id="appointmentList" text="List of Appointments">
+         <MenuItem fx:id="appointmentByLocationTab" onAction="#goToAppointmentByLocationPage" text="by Location (county/date/time)"/>
+         <MenuItem fx:id="appointmentsByDateTimeProviderTab" onAction="#goToAppointmentByDateTimeProviderPage" text="by date/time/provider"/>
+         <MenuItem fx:id="officeVisitAppointments" onAction="#goToOfficeAppointmentPage" text="office visits only"/>
+         <MenuItem fx:id="imagingAppointmentsTab" onAction="#goToImagingAppointmentPage" text="imaging service only"/>
       </Menu>
-      <Menu mnemonicParsing="false" text="Home">
-         <MenuItem fx:id="switchSceneToClinicView" mnemonicParsing="false" onAction="#switchSceneToClinicView"
-                   text="Back to welcome page"/>
+
+      <Menu fx:id="statements" text="Statements">
+         <MenuItem fx:id="statementsTab" onAction="#goToStatementsPage" text="Statements"/>
       </Menu>
    </MenuBar>
+
 </AnchorPane>

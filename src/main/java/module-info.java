@@ -4,5 +4,6 @@ module com.example.project3 {
 
 
     opens clinic to javafx.fxml, javafx.graphics;
-    exports clinic;
+    exports clinic.controller;
+    opens clinic.controller to javafx.fxml, javafx.graphics;
 }
