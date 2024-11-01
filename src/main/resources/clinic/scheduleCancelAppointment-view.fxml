@@ -10,11 +10,11 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="434.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.ScheduleCancelAppointmentView">
+<AnchorPane prefHeight="434.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clinic.ScheduleCancelAppointmentView">
    <children>
       <TextField layoutX="138.0" layoutY="82.0" prefHeight="25.0" prefWidth="151.0" />
       <TextField layoutX="138.0" layoutY="118.0" prefHeight="25.0" prefWidth="151.0" />
@@ -27,9 +27,8 @@
          <menus>
             <Menu fx:id="menuAppointment" mnemonicParsing="false" text="Appointment">
                <items>
-                  <MenuItem fx:id="schedule" mnemonicParsing="false" onAction="#scheduleAppointment" text="Schedule" />
-                  <MenuItem fx:id="reschedule" mnemonicParsing="false" onAction="#rescheduleAppointment" text="Reschedule" />
-                  <MenuItem fx:id="cancel" mnemonicParsing="false" onAction="#cancelAppointment" text="Cancel" />
+                  <MenuItem fx:id="switchSceneToScheduleCancelAppointmentView" mnemonicParsing="false" onAction="#switchSceneToScheduleCancelAppointmentView" text="Schedule/Cancel" />
+                  <MenuItem fx:id="switchSceneToRescheduleAppointmentView" mnemonicParsing="false" onAction="#switchSceneToRescheduleAppointmentView" text="Reschedule" />
                </items>
             </Menu>
             <Menu fx:id="appointmentList" mnemonicParsing="false" text="List of Appointments">
@@ -46,6 +45,11 @@
                   <MenuItem fx:id="providerCreditStatement" mnemonicParsing="false" onAction="#providerStatement" text="Provider" />
                </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Home">
+              <items>
+                <MenuItem fx:id="switchSceneToClinicView" mnemonicParsing="false" onAction="#switchSceneToClinicView" text="Back to welcome page" />
+              </items>
+            </Menu>
          </menus>
       </MenuBar>
       <Text layoutX="20.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule/Cancelling Appointment" />
@@ -56,8 +60,12 @@
       <Button layoutX="488.0" layoutY="360.0" mnemonicParsing="false" text="Clear all" />
       <ComboBox layoutX="139.0" layoutY="253.0" prefWidth="150.0" />
       <ComboBox layoutX="139.0" layoutY="299.0" prefWidth="150.0" />
-      <RadioButton layoutX="436.0" layoutY="244.0" mnemonicParsing="false" text="Office " />
-      <RadioButton layoutX="436.0" layoutY="269.0" mnemonicParsing="false" text="Imaging" />
+      
+      <RadioButton layoutX="436.0" layoutY="244.0" mnemonicParsing="false" text="Office ">
+         <toggleGroup>
+            <ToggleGroup fx:id="typeOfAppointment" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="436.0" layoutY="269.0" mnemonicParsing="false" text="Imaging" toggleGroup="$typeOfAppointment" />
       <Text layoutX="430.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a type of appointment" />
       <Label layoutX="28.0" layoutY="257.0" text="Select a timeslot" />
       <Label layoutX="28.0" layoutY="303.0" text="Select a provider" />
