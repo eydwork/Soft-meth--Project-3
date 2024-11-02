@@ -4,9 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -14,70 +11,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="434.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="clinic.controller.ScheduleController">
+<AnchorPane prefHeight="434.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clinic.controller.ScheduleController">
 
-   <TextField fx:id="patientFirstName" layoutX="138.0" layoutY="82.0" prefHeight="25.0" prefWidth="151.0"/>
-   <TextField fx:id="patientLastName" layoutX="138.0" layoutY="118.0" prefHeight="25.0" prefWidth="151.0"/>
+   <TextField fx:id="patientFirstName" layoutX="138.0" layoutY="73.0" prefHeight="25.0" prefWidth="151.0" />
+   <TextField fx:id="patientLastName" layoutX="138.0" layoutY="118.0" prefHeight="25.0" prefWidth="151.0" />
 
-   <DatePicker fx:id="appointmentDate" layoutX="138.0" layoutY="204.0" prefHeight="25.0" prefWidth="151.0"/>
-   <DatePicker fx:id="patientDOB" layoutX="446.0" layoutY="82.0" prefHeight="25.0" prefWidth="121.0"/>
+   <DatePicker fx:id="appointmentDate" layoutX="138.0" layoutY="204.0" prefHeight="25.0" prefWidth="151.0" />
+   <DatePicker fx:id="patientDOB" layoutX="446.0" layoutY="82.0" prefHeight="25.0" prefWidth="121.0" />
 
-   <Label layoutX="19.0" layoutY="86.0" text="Patient's First Name"/>
-   <Label layoutX="20.0" layoutY="122.0" text="Patient's Last Name"/>
-   <Label layoutX="315.0" layoutY="86.0" prefHeight="17.0" prefWidth="121.0" text="Patient's Date of Birth"/>
+   <Label layoutX="19.0" layoutY="86.0" text="Patient's First Name" />
+   <Label layoutX="20.0" layoutY="122.0" text="Patient's Last Name" />
+   <Label layoutX="315.0" layoutY="86.0" prefHeight="17.0" prefWidth="121.0" text="Patient's Date of Birth" />
 
-   <MenuBar fx:id="menuBar" layoutY="-1.0" prefHeight="25.0" prefWidth="651.0">
-      <Menu text="Home">
-         <MenuItem fx:id="homeTab" onAction="#goToHomePage" text="Back to welcome page"/>
-      </Menu>
+   <fx:include source="menu-bar.fxml" />
 
-      <Menu fx:id="menuAppointment" text="Appointment">
-         <MenuItem fx:id="scheduleTab" onAction="#goToSchedulePage" text="Schedule/Cancel"/>
-         <MenuItem fx:id="rescheduleTab" onAction="#goToReschedulePage" text="Reschedule"/>
-      </Menu>
+   <Text layoutX="20.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule/Cancelling Appointment" />
 
-      <Menu fx:id="appointmentList" text="List of Appointments">
-         <MenuItem fx:id="appointmentByLocationTab" onAction="#goToAppointmentByLocationPage" text="by Location (county/date/time)"/>
-         <MenuItem fx:id="appointmentsByDateTimeProviderTab" onAction="#goToAppointmentByDateTimeProviderPage" text="by date/time/provider"/>
-         <MenuItem fx:id="officeVisitAppointments" onAction="#goToOfficeAppointmentPage" text="office visits only"/>
-         <MenuItem fx:id="imagingAppointmentsTab" onAction="#goToImagingAppointmentPage" text="imaging service only"/>
-      </Menu>
+   <Separator layoutX="17.0" layoutY="175.0" prefHeight="3.0" prefWidth="614.0" />
 
-      <Menu fx:id="statements" text="Statements">
-         <MenuItem fx:id="statementsTab" onAction="#goToStatementsPage" text="Statements"/>
-      </Menu>
-   </MenuBar>
+   <Text layoutX="23.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Date" />
 
-   <Text layoutX="20.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule/Cancelling Appointment"/>
+   <Button fx:id="scheduleAppointmentButton" layoutX="112.0" layoutY="360.0" onAction="#scheduleAppointmentButton" text="Schedule" />
+   <Button fx:id="cancelAppointmentButton" layoutX="300.0" layoutY="360.0" onAction="#cancelAppointmentButton" text="Cancel" />
+   <Button fx:id="clearAllButton" layoutX="488.0" layoutY="360.0" onAction="#clearAllButton" text="Clear all" />
 
-   <Separator layoutX="17.0" layoutY="175.0" prefHeight="3.0" prefWidth="614.0"/>
+   <ComboBox fx:id="timeslotComboBox" layoutX="139.0" layoutY="253.0" prefWidth="150.0" />
+   <ComboBox fx:id="providerComboBox" layoutX="139.0" layoutY="299.0" prefWidth="150.0" />
 
-   <Text layoutX="23.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Date"/>
-
-   <Button fx:id="scheduleAppointmentButton" layoutX="112.0" layoutY="360.0" 
-           onAction="#scheduleAppointmentButton" text="Schedule"/>
-   <Button fx:id="cancelAppointmentButton" layoutX="300.0" layoutY="360.0" 
-           onAction="#cancelAppointmentButton" text="Cancel"/>
-   <Button layoutX="488.0" layoutY="360.0"  text="Clear all"/>
-
-   <ComboBox fx:id="timeslotComboBox" layoutX="139.0" layoutY="253.0" prefWidth="150.0"/>
-   <ComboBox fx:id="providerComboBox" layoutX="139.0" layoutY="299.0" prefWidth="150.0"/>
-
-   <RadioButton fx:id="officeRadioButton" layoutX="436.0" layoutY="244.0"  text="Office ">
+   <RadioButton fx:id="officeRadioButton" layoutX="436.0" layoutY="244.0" text="Office ">
       <toggleGroup>
-         <ToggleGroup fx:id="typeOfAppointment"/>
+         <ToggleGroup fx:id="typeOfAppointment" />
       </toggleGroup>
    </RadioButton>
-   <RadioButton fx:id="imagingRadioButton" layoutX="436.0" layoutY="269.0"  text="Imaging"
-                toggleGroup="$typeOfAppointment"/>
+   <RadioButton fx:id="imagingRadioButton" layoutX="436.0" layoutY="269.0" text="Imaging" toggleGroup="$typeOfAppointment" />
 
-   <Text layoutX="430.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a type of appointment"/>
+   <Text layoutX="430.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a type of appointment" />
 
-   <Label layoutX="28.0" layoutY="257.0" text="Select a timeslot"/>
-   <Label layoutX="28.0" layoutY="303.0" text="Select a provider"/>
+   <Label layoutX="28.0" layoutY="257.0" text="Select a timeslot" />
+   <Label layoutX="28.0" layoutY="303.0" text="Select a provider" />
 
-   <Separator layoutX="417.0" layoutY="228.0" prefWidth="200.0"/>
-   <Separator layoutX="385.0" layoutY="184.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="0.0"/>
+   <Separator layoutX="417.0" layoutY="228.0" prefWidth="200.0" />
+   <Separator layoutX="385.0" layoutY="184.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="0.0" />
 
 </AnchorPane>

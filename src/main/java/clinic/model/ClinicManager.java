@@ -1,24 +1,18 @@
-package clinic.controller;
+package clinic.model;
 
 import clinic.model.mainclasses.*;
 import clinic.model.util.*;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Scanner;
 
-
-public class ClinicController {
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-
+/**
+ * The ClinicManager class is responsible for managing the clinic's operations,
+ * including loading providers from a file, displaying providers, and processing commands.
+ */
+public class ClinicManager {
     private List<Provider> providersList; // List to store providers
     private CircularLinkedList<Technician> technicianRotation; // Circular list to store technicians
     private List<Appointment> appointmentsList; // List to store appointments
@@ -30,7 +24,7 @@ public class ClinicController {
     /**
      * Constructor to initialize the Clinic Manager.
      */
-    public void ClinicManager() {
+    public ClinicManager() {
         providersList = new List<>();
         technicianRotation = new CircularLinkedList<>();
         appointmentsList = new List<>();
@@ -289,10 +283,10 @@ public class ClinicController {
                 }
                 break;
             case "PC": // Display providers credit statements
-                if (appointmentsList.isEmpty()) {
-                    System.out.println("Schedule calendar is empty.");
+                 if (appointmentsList.isEmpty()) {
+                System.out.println("Schedule calendar is empty.");
                 } else {
-                    printCreditStatement();
+                printCreditStatement();
                 }
                 break;
             case "Q": // Quits the scheduler
@@ -438,7 +432,7 @@ public class ClinicController {
      *
      * @param parts The command parts for scheduling a doctor appointment.
      */
-    void handleDoctorAppointment(String[] parts) {
+    private void handleDoctorAppointment(String[] parts) {
         if (parts.length < 7) {
             System.out.println("Missing data tokens.");
             return;
@@ -504,7 +498,7 @@ public class ClinicController {
                 doctor.getLocation().getZip() + "][" + doctor.getSpecialty().getSpecialtyName() + ", #" + doctor.getNpi() + "] booked.");
     }
 
-    void handleTechnicianAppointment(String[] parts) {
+    private void handleTechnicianAppointment(String[] parts) {
         if (parts.length < 7) {
             System.out.println("Missing data tokens. Usage: T,date,timeslot,firstName,lastName,DOB,roomType");
             return;
@@ -616,7 +610,7 @@ public class ClinicController {
 
 
 
-    void handleCancelAppointment(String[] parts) {
+    private void handleCancelAppointment(String[] parts) {
         if (parts.length < 5) {
             System.out.println("Missing data tokens. Usage: C,date,timeslot,firstName,lastName");
             return;
@@ -651,7 +645,7 @@ public class ClinicController {
         System.out.println(appointmentDate + " " + timeslot + " " + firstName + " " + lastName + " " + dobStr + " - appointment has been canceled.");
     }
 
-    void handleRescheduleAppointment(String[] parts) {
+    private void handleRescheduleAppointment(String[] parts) {
         if (parts.length != 7) { // Ensure the correct number of inputs
             System.out.println("Invalid command format. Usage: R,originalDate,originalTimeslot,firstName,lastName,dob,newTimeslot");
             return;
@@ -891,6 +885,13 @@ public class ClinicController {
         return null; // Return null if no matching appointment is found
     }
 
-
-
+    /**
+     * Main method to start the ClinicManager.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        ClinicManager clinicManager = new ClinicManager(); // Pass it to the constructor
+        clinicManager.run(); // Start the ClinicManager
+    }
 }

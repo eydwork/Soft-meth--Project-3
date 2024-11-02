@@ -1,4 +1,4 @@
-package clinic.controller;
+package clinic;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +21,7 @@ public class ClinicManagerMain extends Application {
         homeStage.setScene(scene);
         homeStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
