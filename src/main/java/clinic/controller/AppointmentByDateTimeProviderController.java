@@ -1,11 +1,24 @@
 package clinic.controller;
 
-import javafx.scene.control.TableColumn;
-import javafx.scene.text.Text;
+import clinic.model.mainclasses.Appointment;
+import clinic.model.util.List;
+import clinic.model.util.Sort;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 
-public class AppointmentByDateTimeProviderController extends ClinicController {
-    public Text titleText;
-    public TableColumn dateTableColumn;
-    public TableColumn timeTableColumn;
-    public TableColumn providerTableColumn;
+/*
+*Controller for List of Appointments including the Date, Time, and Provider
+*
+*@authors Erika Dong, Emily Wong
+*/
+
+public class AppointmentByDateTimeProviderController extends ClinicManagerController{
+
+    @FXML
+    private TextArea outputTextArea;
+
+    public void displayAppointmentsButton(ActionEvent actionEvent) {
+        outputTextArea.setText("Appointments: " + getAppointmentsByDTP());
+    }
 }

@@ -6,14 +6,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0"
             prefWidth="575.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="clinic.controller.ClinicController">
+            fx:controller="clinic.controller.ClinicManagerController">
+
+   <fx:include source="menu-bar.fxml"/>
+
    <Text layoutX="144.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to RU clinic!"
          wrappingWidth="325.2994384765625">
       <font>
          <Font name="Bell MT" size="30.0"/>
       </font>
    </Text>
-
-   <fx:include source="menu-bar.fxml"/>
 
 </AnchorPane>

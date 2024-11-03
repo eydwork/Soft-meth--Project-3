@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 
-<MenuBar xmlns:fx="http://javafx.com/fxml/1" layoutY="-1.0" prefHeight="25.0" prefWidth="651.0"
-         fx:controller="clinic.controller.MenuBarController">
+<MenuBar layoutY="-1.0" prefHeight="25.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clinic.controller.MenuBarController">
     <Menu text="Home">
-        <MenuItem fx:id="homeTab" onAction="#goToHomePage" text="Back to welcome page"/>
+        <MenuItem fx:id="homeTab" onAction="#goToHomePage" text="Back to welcome page" />
+    </Menu>
+    <Menu text="Locations">
+        <MenuItem fx:id="locationTab" onAction="#goToLocation" text="Locations "/>
     </Menu>
 
     <Menu text="Appointment">
-        <MenuItem fx:id="scheduleTab" onAction="#goToSchedulePage" text="Schedule/Cancel"/>
-        <MenuItem fx:id="rescheduleTab" onAction="#goToReschedulePage" text="Reschedule"/>
+        <MenuItem fx:id="scheduleTab" onAction="#goToSchedulePage" text="Schedule/Cancel" />
+        <MenuItem fx:id="rescheduleTab" onAction="#goToReschedulePage" text="Reschedule" />
     </Menu>
 
     <Menu text="List of Appointments">
-        <MenuItem fx:id="appointmentByLocationTab" onAction="#goToAppointmentByLocationPage" text="by Location (county/date/time)"/>
-        <MenuItem fx:id="appointmentsByDateTimeProviderTab" onAction="#goToAppointmentByDateTimeProviderPage" text="by date/time/provider"/>
-        <MenuItem fx:id="officeVisitAppointments" onAction="#goToOfficeAppointmentPage" text="office visits only"/>
-        <MenuItem fx:id="imagingAppointmentsTab" onAction="#goToImagingAppointmentPage" text="imaging service only"/>
+        <MenuItem fx:id="appointmentByLocationTab" onAction="#goToAppointmentByLocationPage" text="by Location (county/date/time)" />
+        <MenuItem fx:id="appointmentsByDateTimeProviderTab" onAction="#goToAppointmentByDateTimeProviderPage" text="by date/time/provider" />
+        <MenuItem fx:id="officeVisitAppointments" onAction="#goToOfficeAppointmentPage" text="office visits only" />
+        <MenuItem fx:id="imagingAppointmentsTab" onAction="#goToImagingAppointmentPage" text="imaging service only" />
     </Menu>
 
     <Menu text="Statements">
-        <MenuItem fx:id="statementsTab" onAction="#goToStatementsPage" text="Statements"/>
+        <MenuItem fx:id="statementsTab" onAction="#goToStatementsPage" text="Statements" />
     </Menu>
 </MenuBar>

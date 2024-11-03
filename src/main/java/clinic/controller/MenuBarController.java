@@ -1,5 +1,6 @@
 package clinic.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,8 @@ import java.io.IOException;
 
 public class MenuBarController {
 
+    @FXML
+    public MenuItem locationTab;
     @FXML
     private MenuItem homeTab;
 
@@ -86,5 +89,10 @@ public class MenuBarController {
     @FXML
     public void goToStatementsPage() {
         loadPage("/clinic/statements-view.fxml", statementsTab);
+    }
+
+    @FXML
+    public void goToLocation() {
+        loadPage("/clinic/location-view.fxml", locationTab);
     }
 }

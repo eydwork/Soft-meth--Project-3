@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="clinic.controller.LocationView">
+    
+    <fx:include source="menu-bar.fxml" />
+    
+   <TableView fx:id="locationTable" layoutX="67.0" layoutY="53.0" prefHeight="296.0" prefWidth="587.0">
+     <columns>
+       <TableColumn fx:id="county" prefWidth="218.0000228881836" text="County" />
+       <TableColumn fx:id="city" prefWidth="254.66665649414062" text="City" />
+         <TableColumn fx:id="zipCode" prefWidth="115.3333740234375" text="Zip" />
+     </columns>
+   </TableView>
+
+</AnchorPane>

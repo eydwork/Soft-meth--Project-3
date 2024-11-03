@@ -1,20 +1,20 @@
 package clinic.controller;
 
-import javafx.scene.control.TableColumn;
-import javafx.scene.text.Text;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
-public class OfficeAppointmentsController extends ClinicController {
-    public Text titleText;
-    public TableColumn patientTableColumn;
-    public TableColumn patientFirstNameTableColumn;
-    public TableColumn patientLastNameTableColumn;
-    public TableColumn appointmentTableColumn;
-    public TableColumn appointmentLocationTableColumn;
-    public TableColumn appointmentDateTableColumn;
-    public TableColumn appointmentTimeTableColumn;
-    public TableColumn doctorTableColumn;
-    public TableColumn doctorFirstNameTableColumn;
-    public TableColumn doctorLastNameTableColumn;
-    public TableColumn doctorSpecialtyTableColumn;
-    public TableColumn doctorNpiTableColumn;
+
+import javafx.scene.control.TextArea;
+
+
+public class OfficeAppointmentsController extends ClinicManagerController{
+
+    @FXML
+    private TextArea outputTextArea;
+
+    public void displayAppointmentsButton(ActionEvent actionEvent) {
+        outputTextArea.setText(displayOfficeAppointmentsList());
+    }
+
 }
+

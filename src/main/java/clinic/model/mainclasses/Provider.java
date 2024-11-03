@@ -9,6 +9,8 @@ import clinic.model.util.Location;
 public abstract class Provider extends Person { // subclass of Person and superclass of Doctor and Technician
     private Location location; // location of provider
 
+
+
     public abstract int rate(); // abstract method to be implemented by subclasses
 
     public Provider(Profile profile, Location location) { //constructor
@@ -28,6 +30,8 @@ public abstract class Provider extends Person { // subclass of Person and superc
     public int compareTo(Provider provider) {
         return this.profile.getLname().compareTo(provider.getProfile().getLname());
     }
+
+
 }
 
 

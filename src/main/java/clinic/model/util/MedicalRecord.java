@@ -16,6 +16,14 @@ public class MedicalRecord { //class to store patients and able to get total bil
         size = 0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public Patient[] getPatients() {
+        return patients;
+    }
+
     private void grow() { //this method increases the array
         Patient[] newPatients = new Patient[patients.length + 4]; //makes size bigger by 4
         for (int i = 0; i < size; i++) { //copies original array to new bigger array now

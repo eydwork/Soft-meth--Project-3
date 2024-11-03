@@ -1,5 +1,6 @@
 package clinic;
 
+import clinic.controller.ClinicManagerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,7 @@ public class ClinicManagerMain extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/clinic/clinic-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, WIDTH, HEIGHT); // Set preferred width and height
+        ClinicManagerController controller = new ClinicManagerController();
 
         homeStage.setTitle("Clinic Application");
         homeStage.setScene(scene);

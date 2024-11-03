@@ -11,11 +11,12 @@ public enum Location { //enum for locations
     MORRISTOWN ("Morristown", "Morris", "07960"),
     CLARK ("Clark","Union", "07066");
 
+    private final String city;
     private final String county;
     private final String zip;
 
     Location(String city, String county, String zip){
-
+        this.city=city;
         this.county=county;
         this.zip=zip;
     }
@@ -26,11 +27,11 @@ public enum Location { //enum for locations
     }
 
     public String getCounty() {
-        return county;
+        return this.county;
     }
 
     public String getZip() {
-        return zip;
+        return this.zip;
     }
 
     public int getCountyPriority() {
@@ -48,6 +49,10 @@ public enum Location { //enum for locations
             default:
                 return Integer.MAX_VALUE; // If the county isn't listed, assign it the lowest priority
         }
+    }
+
+    public Location getValue() {
+        return this;
     }
 }
 
